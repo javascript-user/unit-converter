@@ -1,28 +1,26 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import classNames from "classnames";
 
-export default function Modal({ children, onClose, className }) {
+export default function Modal({ children, onClose }) {
   useEffect(() => {
-    document.body.classList.add("overflow-hidden");
+    document.body.style.overflow = "hidden";
+    
+    const handleEsc = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEsc);
 
     return () => {
-      document.body.classList.remove("overflow-hidden");
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleEsc);
     };
-  }, []);
-  const finalclassNames = classNames(
-    "fixed w-[350px] bg-white shadow-lg h-auto rounded-xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4",
-    className
-  );
+  }, [onClose]);
 
   return ReactDOM.createPortal(
     <>
-      <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      <div className={finalclassNames}>
-        <div>{children}</div>
+      <div className="modal-overlay" onClick={onClose} />
+      <div className="modal-content" role="dialog" aria-modal="true">
+        {children}
       </div>
     </>,
     document.querySelector(".modal-container")

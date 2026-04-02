@@ -11,74 +11,74 @@ const conversions = {
       mile: 0.000000621371,
     },
     centimeter: {
-      millimeter: 10, // 1 mm = 0.1 cm
-      centimeter: 1, // Base unit
-      meter: 0.01, // 1 m = 100 cm
-      kilometer: 0.00001, // 1 km = 100,000 cm
-      inch: 0.3937007874, // 1 inch = 2.54 cm
-      foot: 0.032808399, // 1 foot = 30.48 cm
-      yard: 0.010936133, // 1 yard = 91.44 cm
-      mile: 0.0000062137, // 1 mile = 160,934.4 cm
+      millimeter: 10,
+      centimeter: 1,
+      meter: 0.01,
+      kilometer: 0.00001,
+      inch: 0.3937007874,
+      foot: 0.032808399,
+      yard: 0.010936133,
+      mile: 0.0000062137,
     },
     meter: {
-      millimeter: 1000, // 1 m = 1000 mm
-      centimeter: 100, // 1 m = 100 cm
-      meter: 1, // Base unit
-      kilometer: 0.001, // 1 m = 0.001 km
-      inch: 39.3701, // 1 m = 39.3701 inches
-      foot: 3.28084, // 1 m = 3.28084 feet
-      yard: 1.09361, // 1 m = 1.09361 yards
-      mile: 0.000621371, // 1 m = 0.000621371 miles
+      millimeter: 1000,
+      centimeter: 100,
+      meter: 1,
+      kilometer: 0.001,
+      inch: 39.3701,
+      foot: 3.28084,
+      yard: 1.09361,
+      mile: 0.000621371,
     },
     kilometer: {
-      millimeter: 1000000, // 1 km = 1,000,000 mm
-      centimeter: 100000, // 1 km = 100,000 cm
-      meter: 1000, // 1 km = 1000 m
-      kilometer: 1, // Base unit
-      inch: 39370.1, // 1 km = 39,370.1 inches
-      foot: 3280.84, // 1 km = 3280.84 feet
-      yard: 1093.61, // 1 km = 1093.61 yards
-      mile: 0.621371, // 1 km = 0.621371 miles
+      millimeter: 1000000,
+      centimeter: 100000,
+      meter: 1000,
+      kilometer: 1,
+      inch: 39370.1,
+      foot: 3280.84,
+      yard: 1093.61,
+      mile: 0.621371,
     },
     inch: {
-      millimeter: 25.4, // 1 inch = 25.4 mm
-      centimeter: 2.54, // 1 inch = 2.54 cm
-      meter: 0.0254, // 1 inch = 0.0254 m
-      kilometer: 0.0000254, // 1 inch = 0.0000254 km
-      inch: 1, // Base unit
-      foot: 0.0833333, // 1 inch = 0.0833333 feet
-      yard: 0.0277778, // 1 inch = 0.0277778 yards
-      mile: 0.0000157828, // 1 inch = 0.0000157828 miles
+      millimeter: 25.4,
+      centimeter: 2.54,
+      meter: 0.0254,
+      kilometer: 0.0000254,
+      inch: 1,
+      foot: 0.0833333,
+      yard: 0.0277778,
+      mile: 0.0000157828,
     },
     foot: {
-      millimeter: 304.8, // 1 foot = 304.8 mm
-      centimeter: 30.48, // 1 foot = 30.48 cm
-      meter: 0.3048, // 1 foot = 0.3048 m
-      kilometer: 0.0003048, // 1 foot = 0.0003048 km
-      inch: 12, // 1 foot = 12 inches
-      foot: 1, // Base unit
-      yard: 0.333333, // 1 foot = 0.333333 yards
-      mile: 0.000189394, // 1 foot = 0.000189394 miles
+      millimeter: 304.8,
+      centimeter: 30.48,
+      meter: 0.3048,
+      kilometer: 0.0003048,
+      inch: 12,
+      foot: 1,
+      yard: 0.333333,
+      mile: 0.000189394,
     },
     yard: {
-      millimeter: 914.4, // 1 yard = 914.4 mm
-      centimeter: 91.44, // 1 yard = 91.44 cm
-      meter: 0.9144, // 1 yard = 0.9144 m
-      kilometer: 0.0009144, // 1 yard = 0.0009144 km
-      inch: 36, // 1 yard = 36 inches
-      foot: 3, // 1 yard = 3 feet
-      yard: 1, // Base unit
-      mile: 0.000568182, // 1 yard = 0.000568182 miles
+      millimeter: 914.4,
+      centimeter: 91.44,
+      meter: 0.9144,
+      kilometer: 0.0009144,
+      inch: 36,
+      foot: 3,
+      yard: 1,
+      mile: 0.000568182,
     },
     mile: {
-      millimeter: 1609344, // 1 mile = 1,609,344 mm
-      centimeter: 160934.4, // 1 mile = 160,934.4 cm
-      meter: 1609.344, // 1 mile = 1609.344 m
-      kilometer: 1.609344, // 1 mile = 1.609344 km
-      inch: 63360, // 1 mile = 63,360 inches
-      foot: 5280, // 1 mile = 5280 feet
-      yard: 1760, // 1 mile = 1760 yards
-      mile: 1, // Base unit
+      millimeter: 1609344,
+      centimeter: 160934.4,
+      meter: 1609.344,
+      kilometer: 1.609344,
+      inch: 63360,
+      foot: 5280,
+      yard: 1760,
+      mile: 1,
     },
   },
   weight: {
@@ -88,6 +88,7 @@ const conversions = {
       kilogram: 0.000001,
       ounce: 0.000035274,
       pound: 0.00000220462,
+      ton: 0.000000001,
     },
     gram: {
       milligram: 1000,
@@ -95,6 +96,7 @@ const conversions = {
       kilogram: 0.001,
       ounce: 0.035274,
       pound: 0.00220462,
+      ton: 0.000001,
     },
     kilogram: {
       milligram: 1000000,
@@ -102,6 +104,7 @@ const conversions = {
       kilogram: 1,
       ounce: 35.274,
       pound: 2.20462,
+      ton: 0.001,
     },
     ounce: {
       milligram: 28349.5,
@@ -109,6 +112,7 @@ const conversions = {
       kilogram: 0.0283495,
       ounce: 1,
       pound: 0.0625,
+      ton: 0.0000283495,
     },
     pound: {
       milligram: 453592,
@@ -116,6 +120,15 @@ const conversions = {
       kilogram: 0.453592,
       ounce: 16,
       pound: 1,
+      ton: 0.000453592,
+    },
+    ton: {
+      milligram: 1000000000,
+      gram: 1000000,
+      kilogram: 1000,
+      ounce: 35274,
+      pound: 2204.62,
+      ton: 1,
     },
   },
   temperature: {
@@ -133,6 +146,289 @@ const conversions = {
       celsius: (value) => value - 273.15,
       fahrenheit: (value) => ((value - 273.15) * 9) / 5 + 32,
       kelvin: (value) => value,
+    },
+  },
+  area: {
+    sqmillimeter: {
+      sqmillimeter: 1,
+      sqcentimeter: 0.01,
+      sqmeter: 0.000001,
+      sqkilometer: 1e-12,
+      sqinch: 0.00155,
+      sqfoot: 0.0000107639,
+      acre: 2.471e-10,
+      hectare: 1e-10,
+    },
+    sqcentimeter: {
+      sqmillimeter: 100,
+      sqcentimeter: 1,
+      sqmeter: 0.0001,
+      sqkilometer: 1e-10,
+      sqinch: 0.155,
+      sqfoot: 0.00107639,
+      acre: 2.471e-8,
+      hectare: 1e-8,
+    },
+    sqmeter: {
+      sqmillimeter: 1000000,
+      sqcentimeter: 10000,
+      sqmeter: 1,
+      sqkilometer: 0.000001,
+      sqinch: 1550,
+      sqfoot: 10.7639,
+      acre: 0.000247105,
+      hectare: 0.0001,
+    },
+    sqkilometer: {
+      sqmillimeter: 1e12,
+      sqcentimeter: 1e10,
+      sqmeter: 1000000,
+      sqkilometer: 1,
+      sqinch: 1.55e9,
+      sqfoot: 1.076e7,
+      acre: 247.105,
+      hectare: 100,
+    },
+    sqinch: {
+      sqmillimeter: 645.16,
+      sqcentimeter: 6.4516,
+      sqmeter: 0.00064516,
+      sqkilometer: 6.4516e-10,
+      sqinch: 1,
+      sqfoot: 0.00694444,
+      acre: 1.5942e-7,
+      hectare: 6.4516e-8,
+    },
+    sqfoot: {
+      sqmillimeter: 92903,
+      sqcentimeter: 929.03,
+      sqmeter: 0.092903,
+      sqkilometer: 9.2903e-8,
+      sqinch: 144,
+      sqfoot: 1,
+      acre: 0.0000229568,
+      hectare: 9.2903e-6,
+    },
+    acre: {
+      sqmillimeter: 4.047e9,
+      sqcentimeter: 4.047e7,
+      sqmeter: 4046.86,
+      sqkilometer: 0.00404686,
+      sqinch: 6272640,
+      sqfoot: 43560,
+      acre: 1,
+      hectare: 0.404686,
+    },
+    hectare: {
+      sqmillimeter: 1e10,
+      sqcentimeter: 1e8,
+      sqmeter: 10000,
+      sqkilometer: 0.01,
+      sqinch: 1.55e7,
+      sqfoot: 107639,
+      acre: 2.47105,
+      hectare: 1,
+    },
+  },
+  volume: {
+    milliliter: {
+      milliliter: 1,
+      liter: 0.001,
+      cubicmeter: 0.000001,
+      gallon: 0.000264172,
+      cup: 0.00422675,
+      fluidounce: 0.033814,
+      tablespoon: 0.067628,
+      teaspoon: 0.202884,
+    },
+    liter: {
+      milliliter: 1000,
+      liter: 1,
+      cubicmeter: 0.001,
+      gallon: 0.264172,
+      cup: 4.22675,
+      fluidounce: 33.814,
+      tablespoon: 67.628,
+      teaspoon: 202.884,
+    },
+    cubicmeter: {
+      milliliter: 1000000,
+      liter: 1000,
+      cubicmeter: 1,
+      gallon: 264.172,
+      cup: 4226.75,
+      fluidounce: 33814,
+      tablespoon: 67628,
+      teaspoon: 202884,
+    },
+    gallon: {
+      milliliter: 3785.41,
+      liter: 3.78541,
+      cubicmeter: 0.00378541,
+      gallon: 1,
+      cup: 16,
+      fluidounce: 128,
+      tablespoon: 256,
+      teaspoon: 768,
+    },
+    cup: {
+      milliliter: 236.588,
+      liter: 0.236588,
+      cubicmeter: 0.000236588,
+      gallon: 0.0625,
+      cup: 1,
+      fluidounce: 8,
+      tablespoon: 16,
+      teaspoon: 48,
+    },
+    fluidounce: {
+      milliliter: 29.5735,
+      liter: 0.0295735,
+      cubicmeter: 0.0000295735,
+      gallon: 0.0078125,
+      cup: 0.125,
+      fluidounce: 1,
+      tablespoon: 2,
+      teaspoon: 6,
+    },
+    tablespoon: {
+      milliliter: 14.7868,
+      liter: 0.0147868,
+      cubicmeter: 0.0000147868,
+      gallon: 0.00390625,
+      cup: 0.0625,
+      fluidounce: 0.5,
+      tablespoon: 1,
+      teaspoon: 3,
+    },
+    teaspoon: {
+      milliliter: 4.92892,
+      liter: 0.00492892,
+      cubicmeter: 0.00000492892,
+      gallon: 0.00130208,
+      cup: 0.0208333,
+      fluidounce: 0.166667,
+      tablespoon: 0.333333,
+      teaspoon: 1,
+    },
+  },
+  speed: {
+    meterspersecond: {
+      meterspersecond: 1,
+      kilometersperhour: 3.6,
+      milesperhour: 2.23694,
+      knot: 1.94384,
+      footpersecond: 3.28084,
+    },
+    kilometersperhour: {
+      meterspersecond: 0.277778,
+      kilometersperhour: 1,
+      milesperhour: 0.621371,
+      knot: 0.539957,
+      footpersecond: 0.911344,
+    },
+    milesperhour: {
+      meterspersecond: 0.44704,
+      kilometersperhour: 1.60934,
+      milesperhour: 1,
+      knot: 0.868976,
+      footpersecond: 1.46667,
+    },
+    knot: {
+      meterspersecond: 0.514444,
+      kilometersperhour: 1.852,
+      milesperhour: 1.15078,
+      knot: 1,
+      footpersecond: 1.68781,
+    },
+    footpersecond: {
+      meterspersecond: 0.3048,
+      kilometersperhour: 1.09728,
+      milesperhour: 0.681818,
+      knot: 0.592484,
+      footpersecond: 1,
+    },
+  },
+  time: {
+    millisecond: {
+      millisecond: 1,
+      second: 0.001,
+      minute: 0.0000166667,
+      hour: 2.77778e-7,
+      day: 1.15741e-8,
+      week: 1.65344e-9,
+      month: 3.80517e-10,
+      year: 3.17098e-11,
+    },
+    second: {
+      millisecond: 1000,
+      second: 1,
+      minute: 0.0166667,
+      hour: 0.000277778,
+      day: 0.0000115741,
+      week: 0.00000165344,
+      month: 3.80517e-7,
+      year: 3.17098e-8,
+    },
+    minute: {
+      millisecond: 60000,
+      second: 60,
+      minute: 1,
+      hour: 0.0166667,
+      day: 0.000694444,
+      week: 0.0000992063,
+      month: 0.0000228310,
+      year: 0.00000190259,
+    },
+    hour: {
+      millisecond: 3600000,
+      second: 3600,
+      minute: 60,
+      hour: 1,
+      day: 0.0416667,
+      week: 0.00595238,
+      month: 0.00136986,
+      year: 0.000114155,
+    },
+    day: {
+      millisecond: 86400000,
+      second: 86400,
+      minute: 1440,
+      hour: 24,
+      day: 1,
+      week: 0.142857,
+      month: 0.0328767,
+      year: 0.00273973,
+    },
+    week: {
+      millisecond: 604800000,
+      second: 604800,
+      minute: 10080,
+      hour: 168,
+      day: 7,
+      week: 1,
+      month: 0.230137,
+      year: 0.0191781,
+    },
+    month: {
+      millisecond: 2629800000,
+      second: 2629800,
+      minute: 43830,
+      hour: 730.5,
+      day: 30.4375,
+      week: 4.34821,
+      month: 1,
+      year: 0.0833333,
+    },
+    year: {
+      millisecond: 31557600000,
+      second: 31557600,
+      minute: 525960,
+      hour: 8766,
+      day: 365.25,
+      week: 52.1786,
+      month: 12,
+      year: 1,
     },
   },
 };

@@ -1,48 +1,47 @@
 import React from "react";
 import useUnitContext from "../../hooks/use-UnitContext.js";
-import Button from "../Button/Button.js";
 
 function NavBar() {
-  const {
-    activeTab,
-    setActiveTab,
-    setData,
-    setFromSelection,
-    setToSelection,
-    setResult,
-  } = useUnitContext();
+  const { activeTab, setActiveTab, resetForm } = useUnitContext();
 
   const handleTabChange = (tab) => {
+    if (tab === activeTab) return;
     setActiveTab(tab);
-    setData("");
-    setFromSelection("");
-    setToSelection();
-    setResult("");
+    resetForm();
   };
 
   const tabList = [
-    { label: "Length", value: "length" },
-    { label: "Weight", value: "weight" },
-    { label: "Temperature", value: "temperature" },
+    { label: "Length", value: "length", icon: "📏" },
+    { label: "Weight", value: "weight", icon: "⚖️" },
+    { label: "Temp", value: "temperature", icon: "🌡️" },
+    { label: "Area", value: "area", icon: "📐" },
+    { label: "Volume", value: "volume", icon: "🧪" },
+    { label: "Speed", value: "speed", icon: "⚡" },
+    { label: "Time", value: "time", icon: "⏱️" },
   ];
 
-  const renderTabList = tabList.map((item) => {
-    return (
-      <Button
-       key={item.label}
-        onClick={() => handleTabChange(item.value)}
-        className={activeTab === item.value ? "text-teal-500 underline" : ""}
-      >
-        {item.label}
-      </Button>
-    );
-  });
-
   return (
-    <header className="">
-      <h2 className="text-3xl font-medium text-center">Unit Converter</h2>
-      <nav className="flex items-center justify-between md:justify-evenly">
-        {renderTabList}
+    <header className="app-header">
+      <div className="app-logo">
+        <div className="app-logo-icon">⚡</div>
+        <h1 className="app-title">UnitFlipper</h1>
+      </div>
+      <p className="app-subtitle">Smart Unit Converter</p>
+
+      <nav className="tab-nav" role="tablist" aria-label="Conversion categories">
+        {tabList.map((item) => (
+          <button
+            key={item.value}
+            role="tab"
+            aria-selected={activeTab === item.value}
+            onClick={() => handleTabChange(item.value)}
+            className={`tab-btn ${activeTab === item.value ? "active" : ""}`}
+            id={`tab-${item.value}`}
+          >
+            <span className="tab-icon">{item.icon}</span>
+            {item.label}
+          </button>
+        ))}
       </nav>
     </header>
   );

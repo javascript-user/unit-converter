@@ -4,11 +4,14 @@ import Form from "../components/Form/Form";
 
 function HomePage() {
   return (
-    <div className="p-10 bg-white shadow-sm md:shadow-lg ">
+    <div className="main-card">
       <NavBar />
       <Form />
+      <div className="app-footer">
+        Crafted with precision • UnitFlipper v2.0
+      </div>
     </div>
   );
 }
- 
+
 export default HomePage;
