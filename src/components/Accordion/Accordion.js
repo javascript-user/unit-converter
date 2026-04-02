@@ -3,80 +3,74 @@ import { GoChevronDown } from "react-icons/go";
 import useUnitContext from "../../hooks/use-UnitContext";
 import Modal from "../Modal";
 
-
-export default function Accordion({ list = [], getSelected }) {
-  const {
-    activeTab
-  } = useUnitContext();
+export default function Accordion({ list = [], getSelected, selectedValue }) {
+  const { activeTab } = useUnitContext();
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState(list[0]);
-  // const divEl = useRef();
+  const [value, setValue] = useState(list[0] || null);
 
-  // useEffect(() => {
-  //   const handler = (event) => {
-  //     if (divEl.current && !divEl.current.contains(event.target)) {
-  //       setIsOpen(false);
-  //     }
-  //   };
+  // Reset selection when tab changes
+  useEffect(() => {
+    if (list.length > 0) {
+      setValue(list[0]);
+    }
+  }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  //   document.addEventListener("click", handler, true);
+  // Sync with external selectedValue (for swap)
+  useEffect(() => {
+    if (selectedValue !== undefined && selectedValue !== null) {
+      const found = list.find((item) => item.value === selectedValue.value);
+      if (found && found.value !== value?.value) {
+        setValue(found);
+      }
+    }
+  }, [selectedValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  //   return () => {
-  //     document.removeEventListener("click", handler);
-  //   };
-  // }, []);
-
-  const handleClick = () => setIsOpen(!isOpen);
+  // Notify parent of selection changes
+  useEffect(() => {
+    if (value) {
+      getSelected(value);
+    }
+  }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleUnitSelect = (item) => {
     setValue(item);
-    getSelected(value);
     setIsOpen(false);
   };
 
-  function AccordionItem({ label, onClick }) {
-    return (
-      <div
-        className="px-3 py-2 cursor-pointer hover:bg-neutral-200"
-        onClick={onClick}
-      >
-        {label}
-      </div>
-    );
-  }
-
-  const renderList = list.map((item) => {
-    return (
-      <AccordionItem
-        key={item.label}
-        {...item}
-        onClick={() => handleUnitSelect(item)}
-      />
-    );
-  });
-
-  useEffect(() => {
-    setValue(list[0])
-  }, [activeTab,list]);
-
-  useEffect(() => {
-    getSelected(value);
-  }, [getSelected, value]);
+  const renderList = list.map((item) => (
+    <div
+      key={item.value}
+      className={`modal-item ${value?.value === item.value ? "selected" : ""}`}
+      onClick={() => handleUnitSelect(item)}
+      role="option"
+      aria-selected={value?.value === item.value}
+    >
+      <span>{item.label}</span>
+      <span className="item-symbol">{item.symbol}</span>
+    </div>
+  ));
 
   return (
-     <div className="relative select-none w-72">
-      
-      <div
-        onClick={()=>setIsOpen(true)}
-        className="flex items-center justify-end w-full px-3 py-2 text-lg border rounded-md "
+    <div className="selector-wrapper">
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        className={`selector-trigger ${isOpen ? "open" : ""}`}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
       >
-        <div className="w-full">{value.label}</div>
-        <GoChevronDown />
-      </div>
+        <span>{value?.label || "Select unit"}</span>
+        <GoChevronDown className="chevron" />
+      </button>
+
       {isOpen && (
-        <Modal onClose={handleClick} className="">{renderList}</Modal>
+        <Modal onClose={() => setIsOpen(false)}>
+          <div className="modal-header">Select a unit</div>
+          <div className="modal-list" role="listbox">
+            {renderList}
+          </div>
+        </Modal>
       )}
     </div>
-   
   );
 }
